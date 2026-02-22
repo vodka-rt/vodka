@@ -1,139 +1,151 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vodka — Perfil</title>
 
 <style>
 :root{
-  --bg:#0b0d14;
-  --card:rgba(0,0,0,.55);
-  --stroke:rgba(255,255,255,.15);
-  --text:white;
-  --muted:rgba(255,255,255,.75);
-  --radius:22px;
+  --bg:#0e0e0e;
+  --card:rgba(255,255,255,.04);
+  --border:rgba(255,255,255,.15);
+  --text:#f5f5f5;
+  --muted:#b5b5b5;
 }
 
 *{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family: system-ui, -apple-system, sans-serif;
-  background:#0b0d14;
+  background:linear-gradient(180deg,#0e0e0e,#151515);
+  font-family: "Segoe UI", system-ui, sans-serif;
   color:var(--text);
   display:flex;
   justify-content:center;
-  padding:30px 15px;
+  padding:40px 15px;
 }
 
-/* HERO */
-.hero{
+/* CONTAINER */
+.container{
   width:100%;
-  max-width:900px;
-  border-radius:var(--radius);
+  max-width:850px;
+  border-radius:22px;
   overflow:hidden;
-  border:1px solid var(--stroke);
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  position:relative;
+  box-shadow:0 25px 80px rgba(0,0,0,.7);
+  border:1px solid var(--border);
 }
 
 /* BANNER */
 .banner{
-  height:220px;
-  background:url("https://media.tenor.com/3ZQ3ZQ3ZQ3ZAAAAC/anime-aesthetic.gif") center/cover no-repeat;
-  position:relative;
+  height:230px;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200") center/cover no-repeat;
+  filter:grayscale(100%);
 }
 
-/* ESCURECIMENTO DO BANNER */
-.banner::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
-}
-
-/* CONTEÚDO */
+/* CARD CONTENT */
 .content{
-  position:relative;
-  margin-top:-60px;
-  padding:20px;
   background:var(--card);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(18px);
+  padding:30px;
+  margin-top:-60px;
+  position:relative;
 }
 
 /* AVATAR */
 .avatar{
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
   border-radius:50%;
-  border:4px solid #0b0d14;
   object-fit:cover;
-  display:block;
+  border:4px solid #0e0e0e;
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
 }
 
-/* NOME */
+/* NAME */
 h1{
-  margin:15px 0 5px;
-  font-size:28px;
+  margin:20px 0 5px;
+  font-weight:600;
+  font-size:30px;
+  letter-spacing:.05em;
 }
 
-.tag{
+.subtitle{
   color:var(--muted);
-  margin-bottom:15px;
+  font-size:14px;
+  margin-bottom:25px;
 }
 
-/* CARDS */
+/* SECTIONS */
 .section{
-  margin-top:20px;
+  margin-top:25px;
 }
 
 .section h2{
-  font-size:13px;
-  letter-spacing:.15em;
+  font-size:12px;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.7);
+  color:#999;
 }
 
 .chips{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:10px;
+  margin-top:12px;
 }
 
 .chip{
-  padding:8px 12px;
+  padding:8px 14px;
+  border:1px solid var(--border);
   border-radius:999px;
-  background:rgba(255,255,255,.1);
   font-size:13px;
+  background:rgba(255,255,255,.05);
+  transition:.2s;
 }
 
-/* LINKS */
+.chip:hover{
+  background:rgba(255,255,255,.15);
+}
+
+/* BUTTONS */
 .links{
-  margin-top:15px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:12px;
+  margin-top:15px;
 }
 
 .btn{
   padding:12px;
   border-radius:14px;
-  background:rgba(255,255,255,.1);
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
   text-decoration:none;
   color:white;
+  text-align:center;
   transition:.2s;
 }
 
 .btn:hover{
-  background:rgba(255,255,255,.2);
+  background:white;
+  color:black;
+}
+
+/* RESPONSIVO */
+@media(max-width:600px){
+  .content{
+    padding:20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<div class="container">
 
   <!-- BANNER -->
   <div class="banner"></div>
@@ -146,13 +158,15 @@ h1{
     alt="Vodka">
 
     <h1>Vodka</h1>
-    <div class="tag">Garota trans • Programadora iniciante • Em evolução ✨</div>
+    <div class="subtitle">
+      Garota trans • Programadora iniciante • Em constante evolução
+    </div>
 
     <div class="section">
       <h2>Sobre mim</h2>
       <p>
-        Estou começando na programação e gosto de criar páginas bonitas,
-        testar ideias e aprender na prática.
+        Estou começando na programação e gosto de criar páginas elegantes,
+        minimalistas e bem estruturadas. Aprendendo um pouco todos os dias.
       </p>
     </div>
 
@@ -162,7 +176,7 @@ h1{
         <div class="chip">HTML</div>
         <div class="chip">CSS</div>
         <div class="chip">JavaScript</div>
-        <div class="chip">Estudando sempre</div>
+        <div class="chip">UI Minimal</div>
       </div>
     </div>
 
@@ -175,6 +189,7 @@ h1{
     </div>
 
   </div>
+
 </div>
 
 </body>
