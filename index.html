@@ -1,196 +1,259 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vodka — Perfil</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Vodka — Perfil</title>
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:rgba(255,255,255,.05);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --shadow: 0 22px 70px rgba(0,0,0,.65);
+      --r:22px;
+    }
 
-<style>
-:root{
-  --bg:#0e0e0e;
-  --card:rgba(255,255,255,.04);
-  --border:rgba(255,255,255,.15);
-  --text:#f5f5f5;
-  --muted:#b5b5b5;
-}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(255,255,255,.08), transparent 55%),
+        radial-gradient(900px 520px at 80% 30%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(180deg, #070707, #0b0b0b 40%, #0f0f0f);
+      display:flex;
+      justify-content:center;
+      padding:28px 16px 60px;
+    }
 
-*{box-sizing:border-box;}
+    .wrap{ width:min(980px, 100%); display:grid; gap:18px; }
 
-body{
-  margin:0;
-  background:linear-gradient(180deg,#0e0e0e,#151515);
-  font-family: "Segoe UI", system-ui, sans-serif;
-  color:var(--text);
-  display:flex;
-  justify-content:center;
-  padding:40px 15px;
-}
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--r);
+      border:1px solid var(--stroke);
+      background: #0a0a0a;
+      box-shadow: var(--shadow);
+      min-height:240px;
+    }
 
-/* CONTAINER */
-.container{
-  width:100%;
-  max-width:850px;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 25px 80px rgba(0,0,0,.7);
-  border:1px solid var(--border);
-}
+    .banner{
+      height:150px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+      filter: grayscale(100%) contrast(1.05);
+    }
 
-/* BANNER */
-.banner{
-  height:230px;
-  background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200") center/cover no-repeat;
-  filter:grayscale(100%);
-}
+    .heroInner{
+      display:flex;
+      gap:16px;
+      align-items:flex-end;
+      padding:18px 18px 18px;
+      margin-top:-54px;
+      position:relative;
+    }
 
-/* CARD CONTENT */
-.content{
-  background:var(--card);
-  backdrop-filter:blur(18px);
-  padding:30px;
-  margin-top:-60px;
-  position:relative;
-}
+    .avatar{
+      width:92px; height:92px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.18);
+      background:#111;
+      box-shadow: 0 12px 30px rgba(0,0,0,.55);
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter: grayscale(100%) contrast(1.05);
+      transform: scale(1.02);
+    }
 
-/* AVATAR */
-.avatar{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #0e0e0e;
-  box-shadow:0 10px 30px rgba(0,0,0,.6);
-}
+    .head{
+      min-width:0;
+      padding-bottom:6px;
+    }
+    .head h1{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-0.02em;
+      line-height:1.05;
+    }
+    .sub{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.35;
+    }
 
-/* NAME */
-h1{
-  margin:20px 0 5px;
-  font-weight:600;
-  font-size:30px;
-  letter-spacing:.05em;
-}
+    .pillRow{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:rgba(255,255,255,.82);
+    }
 
-.subtitle{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:25px;
-}
+    /* GRID */
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns: 1.15fr .85fr;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .heroInner{ align-items:center; }
+    }
 
-/* SECTIONS */
-.section{
-  margin-top:25px;
-}
+    .card{
+      border-radius:var(--r);
+      border:1px solid var(--stroke);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 28px rgba(0,0,0,.45);
+      padding:18px;
+    }
+    .card h2{
+      margin:0 0 10px 0;
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.74);
+    }
+    .about{
+      margin:0;
+      color: rgba(255,255,255,.86);
+      line-height:1.65;
+      font-size:14px;
+    }
 
-.section h2{
-  font-size:12px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:#999;
-}
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .chip{
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.85);
+      transition: transform .12s ease, background .12s ease;
+    }
+    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
 
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:12px;
-}
+    .links{ display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.92);
+      text-decoration:none;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn small{
+      color: rgba(255,255,255,.62);
+      font-size:12px;
+    }
 
-.chip{
-  padding:8px 14px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  font-size:13px;
-  background:rgba(255,255,255,.05);
-  transition:.2s;
-}
-
-.chip:hover{
-  background:rgba(255,255,255,.15);
-}
-
-/* BUTTONS */
-.links{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top:15px;
-}
-
-.btn{
-  padding:12px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.05);
-  text-decoration:none;
-  color:white;
-  text-align:center;
-  transition:.2s;
-}
-
-.btn:hover{
-  background:white;
-  color:black;
-}
-
-/* RESPONSIVO */
-@media(max-width:600px){
-  .content{
-    padding:20px;
-  }
-}
-</style>
+    .footer{
+      color: rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+      margin-top:4px;
+    }
+  </style>
 </head>
 
 <body>
+  <main class="wrap">
 
-<div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="banner"></div>
 
-  <!-- BANNER -->
-  <div class="banner"></div>
+      <div class="heroInner">
+        <div class="avatar" aria-label="Avatar">
+          <img src="https://i.pinimg.com/736x/6e/6e/0e/6e6e0e79092094513aeaf57789fbd8c2.jpg" alt="Vodka">
+        </div>
 
-  <div class="content">
+        <div class="head">
+          <h1>Vodka</h1>
+          <p class="sub">Garota trans • Programadora iniciante • aprendendo um pouco todo dia</p>
 
-    <!-- FOTO -->
-    <img class="avatar"
-    src="https://i.pinimg.com/736x/6e/6e/0e/6e6e0e79092094513aeaf57789fbd8c2.jpg"
-    alt="Vodka">
-
-    <h1>Vodka</h1>
-    <div class="subtitle">
-      Garota trans • Programadora iniciante • Em constante evolução
-    </div>
-
-    <div class="section">
-      <h2>Sobre mim</h2>
-      <p>
-        Estou começando na programação e gosto de criar páginas elegantes,
-        minimalistas e bem estruturadas. Aprendendo um pouco todos os dias.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Skills</h2>
-      <div class="chips">
-        <div class="chip">HTML</div>
-        <div class="chip">CSS</div>
-        <div class="chip">JavaScript</div>
-        <div class="chip">UI Minimal</div>
+          <div class="pillRow">
+            <div class="pill">HTML</div>
+            <div class="pill">CSS</div>
+            <div class="pill">JavaScript</div>
+            <div class="pill">Minimal • P&B</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="section">
-      <h2>Links</h2>
-      <div class="links">
-        <a class="btn" href="https://github.com/vodka-rt" target="_blank">GitHub</a>
-        <a class="btn" href="https://discord.gg/y6VzUSZKFt" target="_blank">Discord</a>
-      </div>
-    </div>
+    <!-- CARDS -->
+    <section class="grid">
+      <article class="card">
+        <h2>Sobre</h2>
+        <p class="about">
+          Eu sou a <b>Vodka</b>. Tô no começo da programação e gosto de criar páginas bonitas,
+          organizadas e com estética clean. Evoluindo um pouco todo dia.
+        </p>
 
-  </div>
+        <div class="chips" aria-label="Destaques">
+          <span class="chip">✨ Portfólio em construção</span>
+          <span class="chip">📚 Estudos diários</span>
+          <span class="chip">🧩 Curto desafios</span>
+          <span class="chip">🖤 Preto & branco</span>
+        </div>
+      </article>
 
-</div>
+      <aside class="card">
+        <h2>Links</h2>
+        <div class="links">
+          <a class="btn" href="https://github.com/vodka-rt" target="_blank" rel="noreferrer noopener">
+            <span>GitHub</span>
+            <small>ver projetos →</small>
+          </a>
 
+          <a class="btn" href="https://discord.gg/y6VzUSZKFt" target="_blank" rel="noreferrer noopener">
+            <span>Discord</span>
+            <small>me chama →</small>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <p class="footer">feito por Vodka • 2026</p>
+  </main>
 </body>
 </html>
