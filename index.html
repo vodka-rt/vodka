@@ -1,181 +1,181 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0d14" />
-  <title>Vodka — Perfil</title>
-  <style>
-    :root{
-      --bg:#0b0d14;
-      --card:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
-      --radius:22px;
-    }
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(142, 45, 226, .35), transparent 60%),
-        radial-gradient(1000px 700px at 85% 20%, rgba(74, 0, 224, .30), transparent 55%),
-        radial-gradient(900px 700px at 50% 95%, rgba(0, 210, 255, .18), transparent 50%),
-        var(--bg);
-      color:var(--text);
-      display:flex;
-      justify-content:center;
-      padding:28px 16px 60px;
-    }
-    .wrap{ width:min(980px, 100%); display:grid; gap:18px; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vodka — Perfil</title>
 
-    .hero{
-      position:relative; overflow:hidden;
-      border-radius:var(--radius);
-      border:1px solid var(--stroke);
-      background:
-        radial-gradient(1200px 500px at 20% 20%, rgba(255,255,255,.10), transparent 60%),
-        linear-gradient(120deg, rgba(255, 0, 140, .14), rgba(0, 210, 255, .10), rgba(74,0,224,.12));
-      box-shadow: var(--shadow);
-      padding:22px;
-      min-height:220px;
-    }
-    .glow{
-      position:absolute; inset:-120px;
-      background: conic-gradient(from 180deg, rgba(255,0,140,.18), rgba(0,210,255,.18), rgba(74,0,224,.18), rgba(255,0,140,.18));
-      filter: blur(40px);
-      opacity:.55;
-      pointer-events:none;
-      animation: spin 14s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+<style>
+:root{
+  --bg:#0b0d14;
+  --card:rgba(0,0,0,.55);
+  --stroke:rgba(255,255,255,.15);
+  --text:white;
+  --muted:rgba(255,255,255,.75);
+  --radius:22px;
+}
 
-    .heroContent{ position:relative; display:flex; gap:16px; align-items:center; }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background:#0b0d14;
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  padding:30px 15px;
+}
 
-    .avatar{
-      width:86px; height:86px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.22);
-      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      flex:0 0 auto;
-    }
+/* HERO */
+.hero{
+  width:100%;
+  max-width:900px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--stroke);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  position:relative;
+}
 
-    .title{ display:flex; flex-direction:column; gap:6px; min-width:0; }
-    .title h1{
-      margin:0; font-size:30px; letter-spacing:-0.02em; line-height:1.1;
-    }
-    .tagline{ margin:0; color:var(--muted); font-size:14px; line-height:1.4; }
+/* BANNER */
+.banner{
+  height:220px;
+  background:url("https://media.tenor.com/3ZQ3ZQ3ZQ3ZAAAAC/anime-aesthetic.gif") center/cover no-repeat;
+  position:relative;
+}
 
-    .pillRow{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
-    .pill{
-      font-size:12px; padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
-      color:rgba(255,255,255,.85);
-    }
+/* ESCURECIMENTO DO BANNER */
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
 
-    .grid{ display:grid; gap:18px; grid-template-columns: 1.15fr .85fr; }
-    @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
+/* CONTEÚDO */
+.content{
+  position:relative;
+  margin-top:-60px;
+  padding:20px;
+  background:var(--card);
+  backdrop-filter:blur(12px);
+}
 
-    .card{
-      border-radius:var(--radius);
-      border:1px solid var(--stroke);
-      background: var(--card);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      padding:18px;
-    }
-    .card h2{
-      margin:0 0 10px 0;
-      font-size:14px; letter-spacing:.10em; text-transform:uppercase;
-      color: rgba(255,255,255,.78);
-    }
-    .about{ margin:0; line-height:1.6; font-size:14px; color: rgba(255,255,255,.88); }
+/* AVATAR */
+.avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  border:4px solid #0b0d14;
+  object-fit:cover;
+  display:block;
+}
 
-    .list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .chip{
-      font-size:13px; padding:10px 12px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.85);
-    }
+/* NOME */
+h1{
+  margin:15px 0 5px;
+  font-size:28px;
+}
 
-    .links{ display:flex; flex-direction:column; gap:10px; margin-top:8px; }
-    .btn{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      padding:12px 14px; border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.92);
-      text-decoration:none;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
-    .btn small{ color: rgba(255,255,255,.62); font-size:12px; }
+.tag{
+  color:var(--muted);
+  margin-bottom:15px;
+}
 
-    .footer{ color: rgba(255,255,255,.55); font-size:12px; text-align:center; margin-top:4px; }
-  </style>
+/* CARDS */
+.section{
+  margin-top:20px;
+}
+
+.section h2{
+  font-size:13px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.chip{
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  font-size:13px;
+}
+
+/* LINKS */
+.links{
+  margin-top:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  padding:12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.1);
+  text-decoration:none;
+  color:white;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:rgba(255,255,255,.2);
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="glow"></div>
 
-      <div class="heroContent">
-        <div class="avatar" aria-label="Avatar"></div>
+<div class="hero">
 
-        <div class="title">
-          <h1>Vodka</h1>
-          <p class="tagline">Garota trans • programadora iniciante • aprendendo um pouco todo dia ✨</p>
+  <!-- BANNER -->
+  <div class="banner"></div>
 
-          <div class="pillRow">
-            <div class="pill">💻 HTML • CSS • JS</div>
-            <div class="pill">🌱 Em evolução</div>
-            <div class="pill">🖤 estética clean</div>
-          </div>
-        </div>
+  <div class="content">
+
+    <!-- FOTO -->
+    <img class="avatar"
+    src="https://cdn.discordapp.com/attachments/1474945595394494468/1474947890110533774/58af10d507104399c4c64f40f5d3c928.jpg?ex=699bb3c4&is=699a6244&hm=c6d4c506ff5dfac3fcbcd6cc2aebc52a9faa8bae7b2eb6a3e9e9ad3a6e2aa161"
+    alt="Vodka">
+
+    <h1>Vodka</h1>
+    <div class="tag">Garota trans • Programadora iniciante • Em evolução ✨</div>
+
+    <div class="section">
+      <h2>Sobre mim</h2>
+      <p>
+        Estou começando na programação e gosto de criar páginas bonitas,
+        testar ideias e aprender na prática.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Skills</h2>
+      <div class="chips">
+        <div class="chip">HTML</div>
+        <div class="chip">CSS</div>
+        <div class="chip">JavaScript</div>
+        <div class="chip">Estudando sempre</div>
       </div>
-    </section>
+    </div>
 
-    <section class="grid">
-      <article class="card">
-        <h2>Sobre mim</h2>
-        <p class="about">
-          Oi, eu sou a <b>Vodka</b>. Tô começando na programação e curto criar páginas bonitas,
-          aprender na prática e evoluir com projetos reais.
-        </p>
+    <div class="section">
+      <h2>Links</h2>
+      <div class="links">
+        <a class="btn" href="https://github.com/vodka-rt" target="_blank">GitHub</a>
+        <a class="btn" href="https://discord.gg/y6VzUSZKFt" target="_blank">Discord</a>
+      </div>
+    </div>
 
-        <div class="list" aria-label="Destaques">
-          <span class="chip">✨ Portfólio em construção</span>
-          <span class="chip">📚 Estudando todo dia</span>
-          <span class="chip">🧩 Curto desafios</span>
-        </div>
-      </article>
+  </div>
+</div>
 
-      <aside class="card">
-        <h2>Links</h2>
-        <div class="links">
-          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer noopener">
-            <span>GitHub</span>
-            <small>ver projetos →</small>
-          </a>
-
-          <!-- TROQUE o link abaixo pelo seu invite do Discord -->
-          <a class="btn" href="https://discord.gg/SEUINVITE" target="_blank" rel="noreferrer noopener">
-            <span>Discord</span>
-            <small>entrar →</small>
-          </a>
-        </div>
-      </aside>
-    </section>
-
-    <p class="footer">feito por Vodka • <span>2026</span></p>
-  </main>
 </body>
 </html>
